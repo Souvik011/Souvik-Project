@@ -1,0 +1,10 @@
+.button {
+    color: red;
+    cursor: pointer;
+    float: right;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 25px;
+    font-weight: bold;
+    display: flex;
+  }
