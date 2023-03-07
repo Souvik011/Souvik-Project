@@ -4,6 +4,7 @@ import Header from './components/Layout/Header';
 import Cart from './components/Cart/Cart';
 import Product from './components/Product/Product';
 import Footer from './components/Layout/Footer';
+import CartProvider from './context/CartProvider';
 
 const productsArr = [
 
@@ -61,7 +62,8 @@ function App() {
     setCartIsShown(false)
   }
 
-  return (<React.Fragment>
+  return (
+  <React.Fragment><CartProvider>
     
     <div className='container'>
       <div>
@@ -72,7 +74,7 @@ function App() {
         <Footer />
         </div>
     </div>
-  </React.Fragment>
+  </CartProvider></React.Fragment>
   );
 }
 

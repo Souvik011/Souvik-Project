@@ -1,7 +1,21 @@
+import { useContext } from "react";
+
 import classes from "./Product.module.css";
 import { Button, Card } from "react-bootstrap";
+import CartContext from "../../context/cart-context";
 
 const Product = props => {
+    const cartCtx = useContext(CartContext);
+    const addItemToCart = (event) => {
+        event.preventDefault();
+        cartCtx.addItem({
+          title: props.Item.title,
+          price: props.Item.price,
+          imageUrl: props.Item.image,
+          Qty: 1,
+        });
+      };
+
     return (
         <div >
             <h1 className={classes.music}>MUSIC</h1>
@@ -12,8 +26,8 @@ const Product = props => {
     
                 <Card.Img  src = {items.imageUrl} alt="colorimg"/>
     
-                <Card.Body  >{items.price}₹
-                <span><Button  variant="primary" as="input" type="submit" value="ADD TO CART" size="sm"/></span></Card.Body>
+                <Card.Body  >{`₹${items.price}`}
+                <span><Button  variant="primary" as="input" type="submit" value="ADD TO CART" size="sm" onClick={addItemToCart} /></span></Card.Body>
             </Card>
         </div>
     

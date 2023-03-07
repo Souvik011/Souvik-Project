@@ -1,46 +1,15 @@
-import React from "react";
+import React,{useContext} from "react";
 import Modal from "../UI/Modal";
+import CartContext from "../../context/cart-context";
 import classes from "./Cart.module.css";
 
 const Cart = (props) => {
+  const CartCtx = useContext(CartContext);
   const cartElements = (
     <ul>
-      {[
-        {
-          title: "Colors",
-
-          price: 100,
-
-          imageUrl:
-            "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
-
-          quantity: 2,
-        },
-
-        {
-          title: "Black and white Colors",
-
-          price: 50,
-
-          imageUrl:
-            "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
-
-          quantity: 3,
-        },
-
-        {
-          title: "Yellow and Black Colors",
-
-          price: 70,
-
-          imageUrl:
-            "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
-
-          quantity: 1,
-        },
-      ].map((item) => (
+      {CartCtx.items.map((item) => (
         <div>
-          <img src= {item.imageUrl } alt="Icon" className={classes.img}></img> 
+          <img src= {item.imageUrl} alt="Icon" className={classes.img}></img> 
 
           <span className={classes.title}>{item.price} </span>
           <span className={classes.title}>{item.quantity}</span>
