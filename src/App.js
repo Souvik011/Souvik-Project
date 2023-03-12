@@ -1,55 +1,13 @@
 import './App.css';
 import React , {useState} from 'react';
+import { Route,Routes,BrowserRouter} from "react-router-dom";
 import Header from './components/Layout/Header';
 import Cart from './components/Cart/Cart';
-import Product from './components/Product/Product';
 import Footer from './components/Layout/Footer';
 import CartProvider from './context/CartProvider';
+import Store from './components/Pages/Store';
+import About from './components/Pages/About';
 
-const productsArr = [
-
-  {
-  
-  title: 'Colors',
-  
-  price: 100,
-  
-  imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%201.png',
-  
-  },
-  
-  {
-  
-  title: 'Black and white Colors',
-  
-  price: 50,
-  
-  imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%202.png',
-  
-  },
-  
-  {
-  
-  title: 'Yellow and Black Colors',
-  
-  price: 70,
-  
-  imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%203.png',
-  
-  },
-  
-  {
-  
-  title: 'Blue Color',
-  
-  price: 100,
-  
-  imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%204.png',
-  
-  }
-  
-  ];
-  
   
 function App() {
   const[cartIsShown,setCartIsShown]=useState(false)
@@ -62,19 +20,30 @@ function App() {
     setCartIsShown(false)
   }
 
+
   return (
-  <React.Fragment><CartProvider>
+  <React.Fragment>
+    <CartProvider>
     
     <div className='container'>
       <div>
         { cartIsShown && <Cart onClose={HideCartHandler}/>}
         <Header onShowCart={ShowCartHandler}/>
+         <BrowserRouter>
+         <Routes>
+        <Route path="/About" element={<About />} />
           
-        <Product Item = {productsArr} />
+       
+        <Route path="/" element={<Store />} />
+        </Routes>
+        </BrowserRouter> 
+
+
         <Footer />
         </div>
     </div>
-  </CartProvider></React.Fragment>
+  </CartProvider>
+  </React.Fragment>
   );
 }
 
