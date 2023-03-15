@@ -1,8 +1,10 @@
 .header {
-    background-color: black;
-    height: 10rem;
-    color: white;
-    margin:  0 16px 25px 0;
-    padding: 8px 0 20px 0;
-  }
-  
+  background-color: black;
+  height: 10rem;
+  color: white;
+  margin:  0 16px 12px 0;
+  padding: 8px 0 20px 0;
+  width: 100%;
+ 
+}
+

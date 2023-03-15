@@ -1,12 +1,13 @@
 import './App.css';
 import React , {useState} from 'react';
-import { Route,Routes,BrowserRouter} from "react-router-dom";
+import { Route,Routes} from "react-router-dom";
 import Header from './components/Layout/Header';
 import Cart from './components/Cart/Cart';
 import Footer from './components/Layout/Footer';
 import CartProvider from './context/CartProvider';
 import Store from './components/Pages/Store';
 import About from './components/Pages/About';
+import Home from './components/Pages/Home';
 
   
 function App() {
@@ -29,14 +30,16 @@ function App() {
       <div>
         { cartIsShown && <Cart onClose={HideCartHandler}/>}
         <Header onShowCart={ShowCartHandler}/>
-         <BrowserRouter>
+         
          <Routes>
+
+        <Route path="/Home" element={<Home />} /> 
         <Route path="/About" element={<About />} />
           
        
-        <Route path="/" element={<Store />} />
+        <Route path="/Store" element={<Store />} />
         </Routes>
-        </BrowserRouter> 
+
 
 
         <Footer />

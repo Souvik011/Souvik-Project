@@ -47,11 +47,11 @@
     font: inherit;
     font-weight: bold;
     font-size: 1.25rem;
-    color: #8a2b06;
-    border: 1px solid #8a2b06;
-    width: 3rem;
+    color: #f0e1e1;
+    background: red;
+    border: 1px solid #c40a29;
+    width: auto;
     text-align: center;
-    border-radius: 6px;
     background-color: transparent;
     cursor: pointer;
     margin-left: 1rem;

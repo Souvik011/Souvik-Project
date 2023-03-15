@@ -1,16 +1,23 @@
 import { Fragment } from "react";
-import { Button } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
+
 import classes from "./Navbar.module.css";
-const NavBar = (props) => {
+
+const Navbar = (props) => {
+ 
+ 
   return (
     <Fragment>
       <nav className={classes.navbar}>
-        <Button  variant="dark">HOME</Button>
-        <Button  variant="dark">STORE</Button>
-        <Button  variant="dark">ABOUT</Button>
-
+          <NavLink className={classes.icon}  style={{textDecoration:'none', color:'white'}} to='/Home'>HOME</NavLink>
+              
+              
+          <NavLink className={classes.icon} style={{textDecoration:'none', color:'white'}} to='/Store'>STORE</NavLink>
+ 
+          <NavLink className={classes.icon} style={{textDecoration:'none', color:'white'}} to="/About">ABOUT</NavLink>
+       
       </nav>
     </Fragment>
   );
 };
-export default NavBar;
+export default Navbar;

@@ -3,7 +3,7 @@ import React, {Fragment} from 'react';
 import HeaderCart from './HeaderCart';
 import classes from "./Header.module.css";
 import HeaderBar from './HeaderBar';
-import Navbar from "./Navbar/Navbar";
+import Navbar from './Navbar/Navbar';
 
 const Header = (props) => {
     return (

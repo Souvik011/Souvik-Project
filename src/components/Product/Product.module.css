@@ -1,21 +1,32 @@
-.item{
-    margin:50px  auto 150px   160px;
-   display: inline-block;
+.Items{
+   
+    margin-right: 50px;
+}
+.button{
+   background: rgb(13, 201, 226);
+   cursor: pointer;
+   
+}
+button:active {
+    transform: scale(1.2);
+  }
+  
+.price{
+ font-size: larger;
+}
+.img{
+    box-shadow: 5px 5px 10px #000;
+    height: 300px;
+    margin: auto;
+    overflow: hidden;
+    width: 300px;
+    transition: transform 500ms;
+    
+}
+.img:hover{
+    transform: scale(105%);
 }
 
-.h1{
-    text-align: center;
-    margin-top:40px;
-    font-size:30px;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
+.link{
+    text-decoration: none;
 }
-
-.item span{
-    margin:auto auto auto 115px;
-}
-.music{
-    font-family: cursive;
-     text-align: center;
-     padding: 20px;
-     font-size: 30px;
- }
