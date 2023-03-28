@@ -17,6 +17,11 @@ const NavBar = (props) => {
             <NavLink className="m-3" style={{color:'white',textDecorationColor:'whitesmoke'}} to="/about">About</NavLink>
 
             <NavLink className="m-3" style={{color:'white',textDecorationColor:'whitesmoke'}} to="/contactus">Contact Us</NavLink>
+
+            <NavLink className="m-3" style={{color:'white',textDecorationColor:'whitesmoke'}} to="/product">Product</NavLink>
+
+            <NavLink className="m-3" style={{color:'white',textDecorationColor:'whitesmoke'}} to="/login">Log In </NavLink>
+
             </Nav>
         </Container>
         
