@@ -6,6 +6,7 @@ import { Container, Nav, Navbar } from "react-bootstrap";
 import HeaderBar from "../Layout/HeaderBar";
 import Footer from "../Layout/Footer";
 import AuthContext from "../../Store/AuthContext";
+import UserProfile from "./Profile/UserProfile";
 
 
 const AuthForm = () => {
@@ -139,7 +140,7 @@ const AuthForm = () => {
 
       <HeaderBar />
 
-      <section className={classes.auth}>
+      {!authCtx.isLoggedIn && (<section className={classes.auth}>
         <h1>{isLogin ? "Login" : "Sign Up"}</h1>
         <form onSubmit={submitHandler}>
           <div className={classes.control}>
@@ -169,7 +170,9 @@ const AuthForm = () => {
             </button>
           </div>
         </form>
-      </section>
+      </section> 
+      )}
+      {authCtx.isLoggedIn && (<UserProfile />)}
       <Footer />
     </Fragment>
   );
