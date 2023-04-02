@@ -1,5 +1,9 @@
-import React, { useReducer } from "react"
+import React, { useReducer } from "react";
+import axios from "axios";
 import CartContext from "./cart-context";
+
+
+
 
 const defaultState = {
     products: [],
@@ -19,7 +23,7 @@ const cartReducer = (state, action) => {
 
         let update = state.products.concat(action.value)
         if (existsItem) {
-            alert("item alreadry exisits")
+            // alert("item alreadry exisits")
             return {
                 products:state.products,
                 totalAmount:state.totalAmount
@@ -43,7 +47,23 @@ const cartReducer = (state, action) => {
             products: updatedProducts,
             totalAmount: updatedAmount
         }
-    }
+    } else if(localStorage.getItem('email')&& action.type === "ADDt"){
+        let updatedAmount = 0;
+         updatedAmount += action.value.price * action.value.quantity;
+        const existsItemIndex = state.products.findIndex((index) => index.id === action.value.id)
+        const existsItem = state.products[existsItemIndex];
+        let update = state.products.concat(action.value) ;
+        if (existsItem) {
+           return {
+               products: state.products,
+               totalAmount: state.totalAmount
+           } 
+        }  
+        return {
+            products: update,
+            totalAmount: updatedAmount
+        }     
+   }
     
 
 
@@ -61,6 +81,17 @@ const CartProvider = (props) => {
             value: product
 
         })
+        const email=localStorage.getItem("email")
+        const userEmail = email.replace(/[@.]/g, "");
+              
+              const url=`https://crudcrud.com/api/fabf902f809d473b9d3dde23b838f1a6/Cart${userEmail}`
+        
+              axios.post(url,product).then((res)=>{
+                console.log(res.data)
+              }).catch((err)=>{
+                console.log(err)
+              })
+      
     }
 
 
@@ -71,13 +102,24 @@ const CartProvider = (props) => {
             value:id
         })
     }
+    const add2CartHandler = (product) => {
+        dispatchFN({
+            type: "ADDt",
+            value: product
+
+        })
+        
+        
+    }
+    
 
 
     const Cart = {
         products: state.products,
         totalAmount: state.totalAmount,
         addItem: addProductHandler,
-        removeItem: removeProductHandler
+        removeItem: removeProductHandler,
+        add2Item:add2CartHandler
 
 
     }
